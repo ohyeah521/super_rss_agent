@@ -424,12 +424,16 @@ print(db.list_articles())
 python scripts/super_rss_agent.py test https://blog.rust-lang.org/
 python scripts/super_rss_agent.py --help
 ```
-
+  
 ### 扩展指南
 
 - **添加新 CLI 命令**：在 `super_rss_agent.py` 中添加 `cmd_xxx` 函数 + argparse 子解析器 + commands 字典注册。业务逻辑放 storage/scanner，CLI 层只做输入解析和输出格式化。
 - **修改数据库结构**：在 `storage.py` 的 `_SCHEMA_SQL` 中修改建表语句，注意 SQLite 不支持 `ALTER TABLE DROP COLUMN`。
 - **添加新的网络解析逻辑**：在 `scanner.py` 中实现，所有 HTTP 请求必须经过 `fetch_url()` 以确保 SSRF 防护和统一的超时/重试策略。
+
+### 请我喝杯咖啡
+- ![License](https://raw.githubusercontent.com/ohyeah521/super_rss_agent/main/img/buymecoffee.jpg)
+
 
 ## 参与贡献
 
